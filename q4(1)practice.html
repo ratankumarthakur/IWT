@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Date</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+}
+</style>
+<script>
+function displayDate() {
+    var currentDate = new Date();
+    var dateString = currentDate.toDateString();
+    document.getElementById("dateDisplay").value = dateString;
+}
+</script>
+</head>
+<body>
+<h1>Display Date</h1>
+<button onclick="displayDate()">Display Date</button>
+<br><br>
+<input type="text" id="dateDisplay" readonly>
+</body>
+</html>

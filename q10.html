@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Documents</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+  
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+  
+    #documentList {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    #openButton {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+  
+    #openButton:hover {
+      background-color: #0056b3;
+    }
+  </style>
+<script>
+  // List of document names and URLs
+  var documents = [
+    { name: "Document 1", url: "https://drive.google.com/file/d/10qVwrcOoFQfvWY9vzDmocWXnKzYYSNzh/view?usp=drive_link" },
+    { name: "Document 2", url: "https://drive.google.com/file/d/1n_h10Ygymc9IRIG06sO-HEy6hc998KRY/view?usp=sharing" },
+    { name: "Document 3", url: "https://drive.google.com/file/d/1rb0BpFhiVYZtG6Xw5C7VC1HTAGG5N-ip/view?usp=sharing" }
+  ];
+  
+  // Function to display document names on the homepage
+  function displayDocumentNames() {
+    var docNames = documents.map(function(doc) {
+      return doc.name;
+    });
+    document.getElementById("documentList").innerHTML = "Documents to be opened: " + docNames.join(", ");
+  }
+  
+  // Function to open documents sequentially
+  function openDocumentsSequentially() {
+    var index = 0;
+    var interval = 5000; // Interval between opening documents (in milliseconds)
+    
+    function openNextDocument() {
+      if (index < documents.length) {
+        window.open(documents[index].url, "_blank");
+        index++;
+        if (index < documents.length) {
+          setTimeout(openNextDocument, interval);
+        }
+      }
+    }
+    
+    openNextDocument();
+  }
+  
+  // Call functions when the page loads
+  window.onload = function() {
+    displayDocumentNames();
+    openDocumentsSequentially();
+  };
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Document Opener</h1>
+        <p id="documentList"></p>
+        <button id="openButton" onclick="openDocumentsSequentially()">Open Documents</button>
+      </div>
+</body>
+</html>

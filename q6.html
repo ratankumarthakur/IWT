@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Clock</title>
+<style>
+    body {
+        margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    }
+    #clock {
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .hour {
+        color: #FFD700; /* Gold color for hours */
+    }
+    .minute {
+        color: #00FF00; /* Green color for minutes */
+    }
+    .second {
+        color: #FF4500; /* Orange-Red color for seconds */
+    }
+</style>
+</head>
+<body>
+<div id="clock"></div>
+
+<script>
+function updateTime() {
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+
+    // Pad single digit minutes and seconds with a leading zero
+    minutes = (minutes < 10 ? "0" : "") + minutes;
+    seconds = (seconds < 10 ? "0" : "") + seconds;
+
+    // Convert hours from 24-hour format to 12-hour format
+    hours = (hours > 12) ? hours - 12 : hours;
+    hours = (hours === 0) ? 12 : hours;
+
+    var timeString = '<span class="hour">' + hours + '</span>:' +
+                     '<span class="minute">' + minutes + '</span>:' +
+                     '<span class="second">' + seconds + '</span> ' +
+                     (currentTime.getHours() >= 12 ? 'PM' : 'AM');
+    document.getElementById("clock").innerHTML = timeString;
+}
+
+// Call updateTime() every second to update the clock
+setInterval(updateTime, 1000);
+
+// Initial call to display the clock immediately
+updateTime();
+</script>
+</body>
+</html>

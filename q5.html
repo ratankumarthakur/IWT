@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blinking Text</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  #blinkingText {
+    font-size: 24px;
+  }
+
+  .blinking {
+    animation: blink-animation 1s steps(5, start) infinite;
+  }
+  
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+</style>
+</head>
+<body>
+
+<p id="blinkingText">This text blinks</p>
+
+<script>
+  function blinkText() {
+    var elem = document.getElementById("blinkingText");
+    elem.classList.toggle("blinking");
+  }
+  
+  setInterval(blinkText, 1000); // Blink every 1 second (1000 milliseconds)
+</script>
+
+</body>
+</html>
+

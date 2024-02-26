@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stylish Web Page</title>
+<style>
+  /* Font styles */
+  body {
+    font-family: Arial, sans-serif;
+    color: red;
+  }
+
+  h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: large;
+    color: black;
+  }
+
+  p {
+    font-family: "Courier New", Courier, monospace;
+    color: black;
+  }
+
+  /* Background image with different repeat properties */
+  .background1 {
+    background-image: url('images/img-1.jpg');
+    background-repeat: repeat;
+  }
+
+  .background2 {
+    background-image: url('images/img-4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Styles for links */
+  a:link{
+    color: #ff6f00;
+  }
+  a:visited {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a:hover{
+    color: greenyellow;
+  }
+  a:active {
+    color: #ff6f00;
+    text-decoration: underline;
+    cursor: crosshair;
+  }
+</style>
+</head>
+<body class="background1">
+  <h1>Welcome to Stylish Web Page</h1>
+  <p>This is a demonstration of different font styles and background image properties.</p>
+  <p>Visit our <a href="https://chat.openai.com/">website</a> for more information.</p>
+
+  <div class="background2" style="padding: 20px;">
+    <h2>Another Section with Background Image</h2>
+    <p>This section has a background image with no repeat property.</p>
+    <p>Check out our <a href="https://github.com/">products</a>.</p>
+  </div>
+</body>
+</html>

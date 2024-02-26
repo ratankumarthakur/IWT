@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Background Color Changer</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.5s ease;
+    }
+</style>
+</head>
+<body>
+<h1>Background Color Changer</h1>
+<script>
+    function changeBackgroundColor() {
+        var colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff']; // List of colors
+        var randomColor = colors[Math.floor(Math.random() * colors.length)]; // Pick a random color
+        document.body.style.backgroundColor = randomColor; // Change the background color
+    }
+
+    // Change background color every 2 seconds (2000 milliseconds)
+    setInterval(changeBackgroundColor, 2000);
+</script>
+</body>
+</html>
